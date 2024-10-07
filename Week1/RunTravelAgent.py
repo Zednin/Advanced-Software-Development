@@ -71,3 +71,40 @@ class RunTravelAgent:
 
     print("h3 Duration= "+str(h3.getDuration())+" days & Cost= "+str(h3.getCost()))
     print("t2 "+str(t2.getName())+" "+ str(t2.getPostcode()))
+    
+    
+    
+class BankAccount:
+    def __init__(self, pinnumber):
+        self.__pin = pinnumber
+        self.__balance = 100  
+
+    def deposit(self, pinnumber, amount):
+        if pinnumber == self.__pin:
+            self.__balance += amount
+            return self.__balance
+        else:
+            return "Invalid Pin"
+
+    def withdraw(self, pinnumber, amount):
+        if pinnumber == self.__pin:
+            if amount <= self.__balance:
+                self.__balance -= amount
+                return amount
+            else:
+                return "Insufficient funds"
+        else:
+            return "Invalid Pin"
+
+    def get_balance(self, pinnumber):
+        if pinnumber == self.__pin:
+            return self.__balance
+        else:
+            return "Invalid Pin"
+
+    def change_pin(self, oldpinnumber, newpinnumber):
+        if oldpinnumber == self.__pin:
+            self.__pin = newpinnumber
+            return "Pin Changed"
+        else:
+            return "Invalid Pin"
